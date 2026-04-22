@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Better Details Sta. Maria — Paint Protection Film, STEK Tint & Ceramic Coating</title>
+<meta name="description" content="Premium automotive paint correction, paint protection film, STEK window tint, and ceramic coating in Sta. Maria, Bulacan. Correct. Protect. Maintain." />
+<meta name="theme-color" content="#0a0a0a" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Better Details Sta. Maria — PPF · STEK Tint · Ceramic Coating" />
+<meta property="og:description" content="Premium automotive detailing in Sta. Maria, Bulacan. Correct. Protect. Maintain." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="images/pictures/485357285_122114501474785199_4157328346295807510_n.jpg" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="images/logo/better-details-logo-removebg-preview.png" />
+<link rel="apple-touch-icon" href="images/logo/better-details-logo-removebg-preview.png" />
+
+<!-- Fonts: Clash Display (display) + Satoshi (body) — characterful, non-default -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: "#050505",
+          jet: "#0a0a0a",
+          carbon: "#111111",
+          graphite: "#1a1a1a",
+          smoke: "#2a2a2a",
+          chrome: "#e5e7eb",
+          silver: "#b0b4bb",
+          mist: "#8a8e95",
+          blush: "#f5a3a0",
+          coral: "#ef7b78",
+          rose: "#e2545a",
+          garnet: "#b9303a",
+          ember: "#e03a45",
+          ruby: "#d62535",
+        },
+        fontFamily: {
+          display: ['"Clash Display"', "sans-serif"],
+          sans: ['"Satoshi"', "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root {
+    --ink: #050505;
+    --jet: #0a0a0a;
+    --carbon: #111111;
+    --graphite: #1a1a1a;
+    --smoke: #2a2a2a;
+    --chrome: #e5e7eb;
+    --silver: #b0b4bb;
+    --mist: #8a8e95;
+    --blush: #f5a3a0;
+    --coral: #ef7b78;
+    --rose: #e2545a;
+    --garnet: #b9303a;
+    --ember: #e03a45;
+    --ruby: #d62535;
+  }
+
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Satoshi", sans-serif;
+    background: var(--ink);
+    color: var(--chrome);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .display {
+    font-family: "Clash Display", sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  /* ——— Film grain overlay (signature) ——— */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
+  }
+
+  /* ——— Spotlight cursor glow — disabled ——— */
+  .spotlight { display: none; }
+
+  /* ——— Chrome text reflection (readable — stays above #9ea1a8) ——— */
+  .chrome-text {
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, #c9ccd1 55%, #9ea1a8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 20px rgba(255, 255, 255, 0.08));
+  }
+
+  /* ——— Coral → ember gradient for accent words (brand-accurate) ——— */
+  .ember-text {
+    background: linear-gradient(135deg, #f5a3a0 0%, #ef7b78 30%, #e2545a 55%, #d62535 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ——— Coral-only variant for subtle hits ——— */
+  .coral-text {
+    background: linear-gradient(135deg, #f5a3a0 0%, #ef7b78 60%, #e2545a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ——— Hairline divider ——— */
+  .hairline {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 204, 209, 0.25), transparent);
+  }
+
+  /* ——— Reveal on scroll ——— */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+                transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ——— Service card glass ——— */
+  .service-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(10, 10, 10, 0.95));
+    border: 1px solid rgba(201, 204, 209, 0.08);
+    transition: border-color 0.4s, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .service-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 0%), rgba(214, 37, 53, 0.14), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+  }
+  .service-card:hover { border-color: rgba(214, 37, 53, 0.5); transform: translateY(-6px); }
+  .service-card:hover::before { opacity: 1; }
+
+  /* ——— Marquee ——— */
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    animation: marquee 40s linear infinite;
+    width: max-content;
+  }
+
+  /* ——— Car reflection breathing animation on hero ——— */
+  @keyframes gloss {
+    0%, 100% { opacity: 0.4; transform: translateX(-60%) skewX(-20deg); }
+    50% { opacity: 0.9; transform: translateX(60%) skewX(-20deg); }
+  }
+  .gloss-sweep {
+    position: absolute;
+    top: 0; left: 0;
+    width: 40%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    animation: gloss 7s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* ——— Hero headline stroke (readable — stronger outline + soft fill) ——— */
+  .stroke-text {
+    -webkit-text-stroke: 1.5px rgba(229, 231, 235, 0.7);
+    color: rgba(229, 231, 235, 0.04);
+    text-shadow: 0 0 40px rgba(245, 163, 160, 0.1);
+  }
+
+  /* ——— Number ticker ——— */
+  .tick {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ——— FAQ ——— */
+  details[open] summary .caret { transform: rotate(45deg); }
+  details summary { list-style: none; cursor: pointer; }
+  details summary::-webkit-details-marker { display: none; }
+
+  /* ——— Hide scrollbars on gallery ——— */
+  .no-bar::-webkit-scrollbar { display: none; }
+  .no-bar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* ——— Visible themed horizontal scrollbar for gallery ——— */
+  .gallery-scroll { scrollbar-width: thin; scrollbar-color: rgba(224,58,69,0.55) rgba(255,255,255,0.06); }
+  .gallery-scroll::-webkit-scrollbar { height: 8px; }
+  .gallery-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 999px; }
+  .gallery-scroll::-webkit-scrollbar-thumb { background: linear-gradient(90deg, #ef7b78, #e03a45); border-radius: 999px; }
+  .gallery-scroll::-webkit-scrollbar-thumb:hover { background: linear-gradient(90deg, #f5a3a0, #e03a45); }
+
+  /* ——— Diagonal section divider ——— */
+  .diag-top {
+    clip-path: polygon(0 3rem, 100% 0, 100% 100%, 0 100%);
+  }
+
+  /* ——— Kinetic headline reveal ——— */
+  @keyframes sheen {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  .chrome-text.animated {
+    background: linear-gradient(
+      110deg,
+      #ffffff 0%,
+      #ffffff 25%,
+      #c9ccd1 40%,
+      #ffffff 50%,
+      #c9ccd1 60%,
+      #ffffff 75%,
+      #ffffff 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: sheen 6s linear infinite;
+  }
+
+  /* ——— Floating ambient blur orbs ——— */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(40px, -40px) scale(1.1); }
+  }
+  .orb.animate { animation: drift 12s ease-in-out infinite; }
+
+  /* ——— Magnetic CTA glow ring ——— */
+  .cta-primary {
+    position: relative;
+    isolation: isolate;
+  }
+  .cta-primary::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f5a3a0, #e03a45, #f5a3a0);
+    background-size: 200% 200%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s;
+    animation: sheen 3s linear infinite;
+  }
+  .cta-primary:hover::after { opacity: 0.8; filter: blur(8px); }
+
+  /* ——— Service card number badge glow ——— */
+  .service-card h3 { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .service-card:hover h3 { transform: translateX(4px); }
+
+  /* ——— Trust reason hover emphasis ——— */
+  .trust-num {
+    background: linear-gradient(180deg, rgba(229, 231, 235, 0.15) 0%, rgba(229, 231, 235, 0) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px rgba(229, 231, 235, 0.6);
+    transition: all 0.4s ease;
+  }
+  .group:hover .trust-num {
+    -webkit-text-stroke: 1.5px transparent;
+    background: linear-gradient(180deg, #f5a3a0, #e03a45);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ——— Pill glow on active status ——— */
+  .live-dot {
+    box-shadow: 0 0 12px rgba(74, 222, 128, 0.7);
+  }
+
+  /* ——— Sticky WhatsApp pulse ——— */
+  @keyframes pulse-ring {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+    70% { transform: scale(1); box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  }
+  .wa-pulse { animation: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Focus */
+  :focus-visible {
+    outline: 2px solid var(--ember);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body class="bg-ink text-chrome selection:bg-ruby selection:text-white">
+
+<!-- Spotlight cursor -->
+<div class="spotlight" id="spotlight"></div>
+
+<!-- ————— NAV ————— -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-ink/60 border-b border-white/5">
+  <nav class="max-w-[1400px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3 group">
+      <img src="images/logo/better-details-logo-removebg-preview.png"
+           alt="Better Details — correct · protect · maintain"
+           class="w-11 h-11 object-contain drop-shadow-[0_0_14px_rgba(224,58,69,0.35)] group-hover:drop-shadow-[0_0_22px_rgba(224,58,69,0.55)] transition" />
+      <div class="hidden sm:block leading-tight">
+        <div class="chrome-text font-display font-semibold tracking-wider text-sm">BETTER DETAILS</div>
+        <div class="text-[10px] tracking-[0.3em] text-silver uppercase">correct · protect · maintain</div>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#services" class="hover:text-white transition">Services</a>
+      <a href="#process" class="hover:text-white transition">Process</a>
+      <a href="#gallery" class="hover:text-white transition">Gallery</a>
+      <a href="#reviews" class="hover:text-white transition">Reviews</a>
+      <a href="#faq" class="hover:text-white transition">FAQ</a>
+      <a href="#contact" class="hover:text-white transition">Contact</a>
+    </div>
+    <a href="https://wa.me/639175645913" target="_blank" rel="noopener"
+       class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-chrome text-ink hover:bg-white transition text-sm font-semibold">
+      Get a Quote
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <button aria-label="Menu" id="menuBtn" class="md:hidden w-10 h-10 grid place-items-center">
+      <span class="block w-5 h-px bg-chrome relative before:content-[''] before:absolute before:-top-1.5 before:left-0 before:w-5 before:h-px before:bg-chrome after:content-[''] after:absolute after:top-1.5 after:left-0 after:w-5 after:h-px after:bg-chrome"></span>
+    </button>
+  </nav>
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="md:hidden hidden border-t border-white/5 bg-ink/95 backdrop-blur-xl">
+    <div class="px-6 py-6 flex flex-col gap-4 text-sm">
+      <a href="#services" class="py-1">Services</a>
+      <a href="#process" class="py-1">Process</a>
+      <a href="#gallery" class="py-1">Gallery</a>
+      <a href="#reviews" class="py-1">Reviews</a>
+      <a href="#faq" class="py-1">FAQ</a>
+      <a href="#contact" class="py-1">Contact</a>
+      <a href="https://wa.me/639175645913" class="mt-2 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-chrome text-ink font-semibold">Get a Quote</a>
+    </div>
+  </div>
+</header>
+
+<!-- ————— HERO ————— -->
+<section id="top" class="relative min-h-[100svh] overflow-hidden pt-24 pb-16">
+  <!-- Background: Red Toyota 86 in Better Details studio -->
+  <div class="absolute inset-0">
+    <img src="images/pictures/485357285_122114501474785199_4157328346295807510_n.jpg"
+         alt="Red Toyota 86 at Better Details Sta. Maria studio with illuminated brand wall"
+         class="w-full h-full object-cover opacity-75"
+         style="transform: translateX(20%);" />
+    <div class="absolute inset-0 bg-gradient-to-b from-ink/20 via-transparent to-ink"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-transparent"></div>
+    <div class="gloss-sweep"></div>
+  </div>
+
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-10 h-full flex flex-col justify-end min-h-[calc(100svh-6rem)]">
+
+    <!-- Floating pill -->
+    <div class="reveal inline-flex items-center gap-2 self-start px-4 py-2 rounded-full border border-coral/30 bg-coral/10 backdrop-blur-sm text-[11px] tracking-[0.25em] uppercase text-blush mb-8 font-medium">
+      <span class="live-dot w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+      Now Open · Sta. Maria, Bulacan
+    </div>
+
+    <!-- Giant headline -->
+    <h1 class="reveal font-display font-semibold leading-[0.9] tracking-tight text-[clamp(2.75rem,9vw,9rem)] max-w-6xl">
+      <span class="block chrome-text animated">Your paint,</span>
+      <span class="block"><span class="ember-text">perfected.</span></span>
+      <span class="block stroke-text">protected. maintained.</span>
+    </h1>
+
+    <p class="reveal mt-8 max-w-xl text-base md:text-lg text-silver leading-relaxed font-light">
+      Paint Protection Film · STEK Window Tint · Ceramic Coating · Paint Correction.
+      <span class="text-chrome">Obsessive detail</span> from a shop that treats every car like a showroom piece.
+    </p>
+
+    <!-- CTA row -->
+    <div class="reveal mt-10 flex flex-wrap items-center gap-4">
+      <a href="https://wa.me/639175645913?text=Hi%20Better%20Details!%20I%27d%20like%20a%20quote%20for..."
+         target="_blank" rel="noopener"
+         class="cta-primary group inline-flex items-center gap-3 px-8 py-4 bg-chrome text-ink rounded-full font-semibold hover:bg-white transition">
+        Book via WhatsApp
+        <span class="w-6 h-6 rounded-full bg-ink text-chrome grid place-items-center group-hover:translate-x-1 transition">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+      <a href="tel:+639175645913" class="inline-flex items-center gap-3 px-8 py-4 border border-chrome/30 rounded-full hover:border-coral hover:text-blush transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        0917 564 5913
+      </a>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="reveal mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 pt-8 border-t border-white/10">
+      <div>
+        <div class="font-display text-4xl md:text-5xl chrome-text tick" data-count="4.9" data-decimals="1">0.0</div>
+        <div class="text-xs tracking-widest uppercase text-mist mt-2">Google Rating</div>
+      </div>
+      <div>
+        <div class="font-display text-4xl md:text-5xl chrome-text tick" data-count="77" data-suffix="+">0</div>
+        <div class="text-xs tracking-widest uppercase text-mist mt-2">Verified Reviews</div>
+      </div>
+      <div>
+        <div class="font-display text-4xl md:text-5xl chrome-text tick" data-count="3000" data-suffix="+">0</div>
+        <div class="text-xs tracking-widest uppercase text-mist mt-2">Facebook Followers</div>
+      </div>
+      <div>
+        <div class="font-display text-4xl md:text-5xl chrome-text tick" data-count="92" data-suffix="%">0</div>
+        <div class="text-xs tracking-widest uppercase text-mist mt-2">Recommend Us</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.4em] uppercase text-silver flex flex-col items-center gap-3">
+    Scroll
+    <span class="w-px h-10 bg-gradient-to-b from-chrome/60 to-transparent"></span>
+  </div>
+</section>
+
+<!-- ————— MARQUEE: brand partners / keywords ————— -->
+<div class="py-6 border-y border-white/5 bg-jet overflow-hidden">
+  <div class="marquee-track flex items-center gap-16 whitespace-nowrap text-chrome/50 font-display font-medium text-xl md:text-2xl tracking-wider uppercase">
+    <span class="flex items-center gap-16">
+      <span>STEK Window Film</span><span class="text-ember">•</span>
+      <span>Paint Protection Film</span><span class="text-ember">•</span>
+      <span>Ceramic Coating</span><span class="text-ember">•</span>
+      <span>Paint Correction</span><span class="text-ember">•</span>
+      <span>Premium Carwash</span><span class="text-ember">•</span>
+      <span>Authorized Installer</span><span class="text-ember">•</span>
+    </span>
+    <span class="flex items-center gap-16" aria-hidden="true">
+      <span>STEK Window Film</span><span class="text-ember">•</span>
+      <span>Paint Protection Film</span><span class="text-ember">•</span>
+      <span>Ceramic Coating</span><span class="text-ember">•</span>
+      <span>Paint Correction</span><span class="text-ember">•</span>
+      <span>Premium Carwash</span><span class="text-ember">•</span>
+      <span>Authorized Installer</span><span class="text-ember">•</span>
+    </span>
+  </div>
+</div>
+
+<!-- ————— SERVICES ————— -->
+<section id="services" class="relative py-16 md:py-24">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <!-- Section header -->
+    <div class="grid md:grid-cols-12 gap-8 items-end mb-12 reveal">
+      <div class="md:col-span-2">
+        <div class="text-xs tracking-[0.4em] uppercase text-ember">01 / Services</div>
+      </div>
+      <div class="md:col-span-7">
+        <h2 class="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.95]">
+          <span class="chrome-text">Three commitments.</span><br/>
+          <span class="ember-text">One philosophy.</span>
+        </h2>
+      </div>
+      <div class="md:col-span-3">
+        <p class="text-silver text-sm leading-relaxed">
+          Every service we offer exists on a single spine — <span class="text-chrome">correct</span> the flaws,
+          <span class="text-chrome">protect</span> what's perfect, <span class="text-chrome">maintain</span> it for the long run.
+        </p>
+      </div>
+    </div>
+
+    <!-- 3 pillar cards -->
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- CORRECT -->
+      <div class="service-card rounded-3xl p-8 md:p-10 reveal min-h-[520px] flex flex-col">
+        <div class="flex items-start justify-between">
+          <div class="text-[11px] tracking-[0.3em] uppercase text-ember">— Step 01</div>
+          <div class="w-12 h-12 rounded-full border border-chrome/20 grid place-items-center">
+            <svg class="w-5 h-5 text-chrome" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+        </div>
+        <h3 class="font-display text-4xl md:text-5xl mt-8 text-white">correct.</h3>
+        <p class="text-silver mt-4 leading-relaxed">
+          Paint correction removes swirl marks, oxidation, and micro-scratches
+          from neglected or aged paintwork. Machine polishing brings back the
+          depth and gloss your car left the dealer with.
+        </p>
+        <ul class="mt-6 space-y-2 text-sm text-chrome/80">
+          <li class="flex gap-2"><span class="text-ember">→</span>Single- & multi-stage polishing</li>
+          <li class="flex gap-2"><span class="text-ember">→</span>Swirl & scratch removal</li>
+          <li class="flex gap-2"><span class="text-ember">→</span>Gloss & clarity restoration</li>
+        </ul>
+        <div class="mt-auto pt-10 flex items-center justify-between">
+          <div class="text-xs text-silver">Starts at</div>
+          <div class="font-display text-2xl chrome-text">₱ — <span class="text-silver text-sm">tba</span></div>
+        </div>
+      </div>
+
+      <!-- PROTECT -->
+      <div class="service-card rounded-3xl p-8 md:p-10 reveal min-h-[520px] flex flex-col">
+        <div class="flex items-start justify-between">
+          <div class="text-[11px] tracking-[0.3em] uppercase text-ember">— Step 02</div>
+          <div class="w-12 h-12 rounded-full border border-ember/50 grid place-items-center bg-ember/10">
+            <svg class="w-5 h-5 text-ember" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10V6l9-4z"/></svg>
+          </div>
+        </div>
+        <h3 class="font-display text-4xl md:text-5xl mt-8 ember-text">protect.</h3>
+        <p class="text-silver mt-4 leading-relaxed">
+          Paint Protection Film (PPF) and STEK window tint form an invisible
+          armor against rock chips, bugs, UV, and heat. Self-healing, optically
+          clear, and engineered for years of performance.
+        </p>
+        <ul class="mt-6 space-y-2 text-sm text-chrome/80">
+          <li class="flex gap-2"><span class="text-ember">→</span>PPF — full body, partial, or track pack</li>
+          <li class="flex gap-2"><span class="text-ember">→</span>STEK ceramic window tint</li>
+          <li class="flex gap-2"><span class="text-ember">→</span>UV & heat rejection up to 99%</li>
+        </ul>
+        <div class="mt-auto pt-10 flex items-center justify-between">
+          <div class="text-xs text-silver">Starts at</div>
+          <div class="font-display text-2xl chrome-text">₱ — <span class="text-silver text-sm">tba</span></div>
+        </div>
+      </div>
+
+      <!-- MAINTAIN -->
+      <div class="service-card rounded-3xl p-8 md:p-10 reveal min-h-[520px] flex flex-col">
+        <div class="flex items-start justify-between">
+          <div class="text-[11px] tracking-[0.3em] uppercase text-ember">— Step 03</div>
+          <div class="w-12 h-12 rounded-full border border-chrome/20 grid place-items-center">
+            <svg class="w-5 h-5 text-chrome" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+          </div>
+        </div>
+        <h3 class="font-display text-4xl md:text-5xl mt-8 text-white">maintain.</h3>
+        <p class="text-silver mt-4 leading-relaxed">
+          Ceramic coating and premium carwash services keep your protection
+          performing at 100%. Hydrophobic, gloss-enhancing, and built for
+          real-world Philippine conditions.
+        </p>
+        <ul class="mt-6 space-y-2 text-sm text-chrome/80">
+          <li class="flex gap-2"><span class="text-ember">→</span>Ceramic coating (1 / 3 / 5+ year)</li>
+          <li class="flex gap-2"><span class="text-ember">→</span>Premium hand carwash</li>
+          <li class="flex gap-2"><span class="text-ember">→</span>Maintenance & decontamination</li>
+        </ul>
+        <div class="mt-auto pt-10 flex items-center justify-between">
+          <div class="text-xs text-silver">Starts at</div>
+          <div class="font-display text-2xl chrome-text">₱ — <span class="text-silver text-sm">tba</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center reveal">
+      <a href="https://wa.me/639175645913" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-3 text-sm tracking-widest uppercase text-chrome hover:text-white transition">
+        Request a full service menu
+        <span class="w-10 h-px bg-chrome/40"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ————— TRUST / WHY US ————— -->
+<section class="relative py-16 md:py-24 bg-gradient-to-b from-ink via-jet to-ink overflow-hidden">
+  <!-- Ambient glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full bg-ember/5 blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+    <div class="grid md:grid-cols-12 gap-12 items-start">
+      <div class="md:col-span-5 md:sticky md:top-32 reveal">
+        <div class="text-xs tracking-[0.4em] uppercase text-ember mb-6">02 / Why Better Details</div>
+        <h2 class="font-display text-4xl md:text-6xl leading-[0.95] mb-8">
+          <span class="chrome-text">A shop that</span><br/>
+          <span class="ember-text">cuts no corners.</span>
+        </h2>
+        <p class="text-silver leading-relaxed max-w-md">
+          Sta. Maria's premium detailing destination — where obsession meets
+          craftsmanship, and every car leaves looking better than the day it
+          was delivered.
+        </p>
+
+        <div class="mt-10 flex items-center gap-4">
+          <div class="flex -space-x-1">
+            <span class="text-ember text-xl">★</span>
+            <span class="text-ember text-xl">★</span>
+            <span class="text-ember text-xl">★</span>
+            <span class="text-ember text-xl">★</span>
+            <span class="text-ember text-xl">★</span>
+          </div>
+          <div>
+            <div class="font-display text-xl chrome-text">4.9 / 5.0</div>
+            <div class="text-xs text-silver">from 77+ Google reviews</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:col-span-7 space-y-6">
+        <!-- Reason 1 -->
+        <div class="reveal group border border-white/10 rounded-2xl p-8 hover:border-ember/40 transition">
+          <div class="flex items-start gap-6">
+            <div class="trust-num font-display text-5xl md:text-6xl w-20 shrink-0">01</div>
+            <div>
+              <h3 class="font-display text-2xl mb-2">Authorized installer standards</h3>
+              <p class="text-silver leading-relaxed">
+                STEK-installed window films and ceramic coatings backed by
+                authentic product, manufacturer training, and real warranties —
+                not knock-offs sold by weight.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Reason 2 -->
+        <div class="reveal group border border-white/10 rounded-2xl p-8 hover:border-ember/40 transition">
+          <div class="flex items-start gap-6">
+            <div class="trust-num font-display text-5xl md:text-6xl w-20 shrink-0">02</div>
+            <div>
+              <h3 class="font-display text-2xl mb-2">Obsessive process, every time</h3>
+              <p class="text-silver leading-relaxed">
+                Decontamination, paint inspection, correction, and protection —
+                executed in that order, no shortcuts. Your car's finish is
+                photographed at each stage.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Reason 3 -->
+        <div class="reveal group border border-white/10 rounded-2xl p-8 hover:border-ember/40 transition">
+          <div class="flex items-start gap-6">
+            <div class="trust-num font-display text-5xl md:text-6xl w-20 shrink-0">03</div>
+            <div>
+              <h3 class="font-display text-2xl mb-2">Owner-led. Personally.</h3>
+              <p class="text-silver leading-relaxed">
+                Our customers mention the owner by name in their reviews — because
+                you'll meet him, not a call-center. Quotes, walkthroughs, and
+                post-service check-ins come from the top.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Reason 4 -->
+        <div class="reveal group border border-white/10 rounded-2xl p-8 hover:border-ember/40 transition">
+          <div class="flex items-start gap-6">
+            <div class="trust-num font-display text-5xl md:text-6xl w-20 shrink-0">04</div>
+            <div>
+              <h3 class="font-display text-2xl mb-2">Built for Philippine conditions</h3>
+              <p class="text-silver leading-relaxed">
+                Tropical sun, dust, rainy-season contaminants, and traffic-grade
+                stone chips — every product we install is chosen because it
+                survives here, not just on a German brochure.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————— PROCESS ————— -->
+<section id="process" class="relative py-16 md:py-24 bg-jet">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-10 reveal">
+      <div>
+        <div class="text-xs tracking-[0.4em] uppercase text-ember mb-4">03 / Process</div>
+        <h2 class="font-display text-4xl md:text-6xl leading-[0.95]">
+          <span class="chrome-text">How we</span><br/>
+          <span class="ember-text">treat your car.</span>
+        </h2>
+      </div>
+      <p class="text-silver max-w-md text-sm leading-relaxed">
+        From the moment you pull into our bay, every step follows a strict
+        sequence. No improvising, no skipping.
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <ol class="relative grid md:grid-cols-4 gap-8">
+      <!-- rail -->
+      <div class="hidden md:block absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-chrome/25 to-transparent"></div>
+
+      <li class="reveal">
+        <div class="relative mb-6 flex items-center">
+          <div class="w-4 h-4 rounded-full bg-ember ring-4 ring-ember/20"></div>
+          <div class="h-px bg-chrome/15 flex-1 ml-3 md:hidden"></div>
+        </div>
+        <div class="text-[11px] tracking-[0.3em] uppercase text-ember mb-2">Day 0</div>
+        <h3 class="font-display text-2xl mb-3">Consultation</h3>
+        <p class="text-silver text-sm leading-relaxed">Walk-in or WhatsApp. We assess the car, listen to your goals, and quote transparently — no upsell theatre.</p>
+      </li>
+      <li class="reveal">
+        <div class="relative mb-6 flex items-center">
+          <div class="w-4 h-4 rounded-full bg-ember ring-4 ring-ember/20"></div>
+          <div class="h-px bg-chrome/15 flex-1 ml-3 md:hidden"></div>
+        </div>
+        <div class="text-[11px] tracking-[0.3em] uppercase text-ember mb-2">Day 1</div>
+        <h3 class="font-display text-2xl mb-3">Decontamination</h3>
+        <p class="text-silver text-sm leading-relaxed">Foam pre-wash, clay, iron remover, two-bucket wash. Every contaminant leaves before any polish or film touches your paint.</p>
+      </li>
+      <li class="reveal">
+        <div class="relative mb-6 flex items-center">
+          <div class="w-4 h-4 rounded-full bg-ember ring-4 ring-ember/20"></div>
+          <div class="h-px bg-chrome/15 flex-1 ml-3 md:hidden"></div>
+        </div>
+        <div class="text-[11px] tracking-[0.3em] uppercase text-ember mb-2">Day 1–2</div>
+        <h3 class="font-display text-2xl mb-3">Correction</h3>
+        <p class="text-silver text-sm leading-relaxed">Machine polishing under controlled lighting. Defects removed, gloss restored, paint prepped for protection.</p>
+      </li>
+      <li class="reveal">
+        <div class="relative mb-6 flex items-center">
+          <div class="w-4 h-4 rounded-full bg-chrome ring-4 ring-chrome/20"></div>
+        </div>
+        <div class="text-[11px] tracking-[0.3em] uppercase text-chrome mb-2">Day 2–3</div>
+        <h3 class="font-display text-2xl mb-3">Protect &amp; Hand Over</h3>
+        <p class="text-silver text-sm leading-relaxed">PPF, tint, and/or ceramic coating applied. Final inspection, aftercare briefing, and your car is ready.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ————— GALLERY ————— -->
+<section id="gallery" class="relative py-16 md:py-24">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-12 reveal">
+      <div>
+        <div class="text-xs tracking-[0.4em] uppercase text-ember mb-4">04 / Gallery</div>
+        <h2 class="font-display text-4xl md:text-6xl leading-[0.95]">
+          <span class="chrome-text">Work that</span><br/>
+          <span class="ember-text">speaks for itself.</span>
+        </h2>
+      </div>
+      <div class="text-xs tracking-widest uppercase text-blush/80">
+        Recent work · Sta. Maria, Bulacan
+      </div>
+    </div>
+
+    <div class="relative">
+      <!-- Prev / Next arrows (always visible, inside the track) -->
+      <button type="button" aria-label="Previous image" id="galleryPrev"
+              class="grid absolute left-3 md:left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 md:w-14 md:h-14 place-items-center rounded-full bg-ink/85 border border-chrome/30 backdrop-blur hover:border-ember hover:bg-ember/20 text-chrome transition disabled:opacity-25 disabled:pointer-events-none shadow-xl">
+        <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button type="button" aria-label="Next image" id="galleryNext"
+              class="grid absolute right-3 md:right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 md:w-14 md:h-14 place-items-center rounded-full bg-ink/85 border border-chrome/30 backdrop-blur hover:border-ember hover:bg-ember/20 text-chrome transition disabled:opacity-25 disabled:pointer-events-none shadow-xl">
+        <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+
+      <!-- Edge fades -->
+      <div class="pointer-events-none absolute inset-y-0 left-0 w-8 md:w-16 bg-gradient-to-r from-ink to-transparent z-10"></div>
+      <div class="pointer-events-none absolute inset-y-0 right-0 w-8 md:w-16 bg-gradient-to-l from-ink to-transparent z-10"></div>
+
+    <div id="galleryTrack" class="flex gap-5 overflow-x-auto pb-6 gallery-scroll snap-x snap-mandatory cursor-grab active:cursor-grabbing scroll-smooth">
+      <!-- Each card: placeholder Unsplash auto photography -->
+      <figure class="relative shrink-0 w-[72%] md:w-[400px] aspect-[4/5] rounded-3xl overflow-hidden snap-start group">
+        <img src="images/pictures/patroll.jpg"
+             alt="Ceramic-coated white car side mirror reflecting hexagon studio lighting at Better Details"
+             class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+        <figcaption class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-ink via-ink/70 to-transparent">
+          <div class="text-[11px] tracking-widest uppercase text-blush">Ceramic Coating</div>
+          <div class="font-display text-xl mt-1">Showroom-grade gloss</div>
+        </figcaption>
+      </figure>
+      <figure class="relative shrink-0 w-[72%] md:w-[400px] aspect-[4/5] rounded-3xl overflow-hidden snap-start group">
+        <img src="images/pictures/patrol.jpg"
+             alt="White Nissan Patrol under Better Details hexagon studio lights after paint correction"
+             class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+        <figcaption class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-ink via-ink/70 to-transparent">
+          <div class="text-[11px] tracking-widest uppercase text-blush">Paint Correction</div>
+          <div class="font-display text-xl mt-1">Swirls removed, depth restored</div>
+        </figcaption>
+      </figure>
+      <figure class="relative shrink-0 w-[72%] md:w-[400px] aspect-[4/5] rounded-3xl overflow-hidden snap-start group">
+        <img src="images/pictures/580497931_122165575454785199_9134341599500787868_n.jpg"
+             alt="Toyota Fortuner with dark STEK tint alongside other vehicles in Better Details service bay"
+             class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+        <figcaption class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-ink via-ink/70 to-transparent">
+          <div class="text-[11px] tracking-widest uppercase text-blush">STEK Tint</div>
+          <div class="font-display text-xl mt-1">Up to 99% UV rejection</div>
+        </figcaption>
+      </figure>
+      <figure class="relative shrink-0 w-[72%] md:w-[400px] aspect-[4/5] rounded-3xl overflow-hidden snap-start group">
+        <img src="images/pictures/520885609_122145205838785199_3119981316530736042_n.jpg"
+             alt="White Jeep Rubicon protected with paint protection film at Better Details"
+             class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+        <figcaption class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-ink via-ink/70 to-transparent">
+          <div class="text-[11px] tracking-widest uppercase text-blush">Paint Protection Film</div>
+          <div class="font-display text-xl mt-1">Self-healing armor</div>
+        </figcaption>
+      </figure>
+      <figure class="relative shrink-0 w-[72%] md:w-[400px] aspect-[4/5] rounded-3xl overflow-hidden snap-start group">
+        <img src="images/pictures/506297066_122136886124785199_2779903083864661729_n.jpg"
+             alt="Better Details shop bays with hexagon lighting and cars being serviced"
+             class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+        <figcaption class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-ink via-ink/70 to-transparent">
+          <div class="text-[11px] tracking-widest uppercase text-blush">Our Facility</div>
+          <div class="font-display text-xl mt-1">Controlled environment</div>
+        </figcaption>
+      </figure>
+    </div>
+
+      <!-- Progress bar + hint -->
+      <div class="mt-4 flex items-center gap-4">
+        <div class="flex-1 h-px bg-white/10 relative overflow-hidden">
+          <div id="galleryProgress" class="absolute inset-y-0 left-0 bg-gradient-to-r from-coral to-ember" style="width:0%"></div>
+        </div>
+        <div class="text-[10px] tracking-[0.3em] uppercase text-mist">Drag · Swipe · Scroll →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————— REVIEWS ————— -->
+<section id="reviews" class="relative py-16 md:py-24 bg-jet overflow-hidden">
+  <div class="absolute top-1/3 right-0 w-[600px] h-[600px] rounded-full bg-ember/5 blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+    <div class="grid md:grid-cols-12 gap-8 mb-12 reveal">
+      <div class="md:col-span-2">
+        <div class="text-xs tracking-[0.4em] uppercase text-ember">05 / Reviews</div>
+      </div>
+      <div class="md:col-span-7">
+        <h2 class="font-display text-4xl md:text-6xl leading-[0.95]">
+          <span class="chrome-text">Real words,</span><br/>
+          <span class="ember-text">real customers.</span>
+        </h2>
+      </div>
+      <div class="md:col-span-3 flex items-end">
+        <a href="https://g.co/kgs/search" target="_blank" rel="noopener" class="text-sm tracking-widest uppercase text-chrome hover:text-white">Read all on Google →</a>
+      </div>
+    </div>
+
+    <!-- Review grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article class="reveal border border-white/10 rounded-3xl p-8 bg-gradient-to-b from-white/[0.02] to-transparent">
+        <div class="flex gap-1 text-ember mb-5" aria-label="5 out of 5 stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <blockquote class="text-chrome leading-relaxed mb-8">
+          “Had my car ceramic coated here and I'm very satisfied with the result.
+          The staff were professional and explained the process clearly. The paint
+          looks glossier and smoother, and the color really stands out now.”
+        </blockquote>
+        <footer class="flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-ember to-garnet grid place-items-center font-display text-ink">M</div>
+          <div>
+            <div class="font-semibold text-chrome">Mikhel Pascua</div>
+            <div class="text-xs text-silver">Google Review · Ceramic Coating</div>
+          </div>
+        </footer>
+      </article>
+
+      <article class="reveal border border-white/10 rounded-3xl p-8 bg-gradient-to-b from-white/[0.02] to-transparent">
+        <div class="flex gap-1 text-ember mb-5" aria-label="5 out of 5 stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <blockquote class="text-chrome leading-relaxed mb-8">
+          “So happy with their Premium services. They have friendly staff
+          specially the owner who will cater all of your questions.”
+        </blockquote>
+        <footer class="flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-chrome to-silver grid place-items-center font-display text-ink">MJ</div>
+          <div>
+            <div class="font-semibold text-chrome">Mark Jay Manaog</div>
+            <div class="text-xs text-silver">Google Local Guide</div>
+          </div>
+        </footer>
+      </article>
+
+      <article class="reveal border border-white/10 rounded-3xl p-8 bg-gradient-to-b from-white/[0.02] to-transparent">
+        <div class="flex gap-1 text-ember mb-5" aria-label="5 out of 5 stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <blockquote class="text-chrome leading-relaxed mb-8">
+          “Premium carwash, attention to detail, accommodating staff. Will come
+          back for ceramic coating next. Highly recommend for anyone in Sta. Maria.”
+        </blockquote>
+        <footer class="flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-smoke to-graphite border border-chrome/20 grid place-items-center font-display text-chrome">★</div>
+          <div>
+            <div class="font-semibold text-chrome">Verified Customer</div>
+            <div class="text-xs text-silver">Google Review</div>
+          </div>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ————— FAQ ————— -->
+<section id="faq" class="relative py-16 md:py-24">
+  <div class="max-w-[1100px] mx-auto px-6 lg:px-10">
+    <div class="text-center mb-10 reveal">
+      <div class="text-xs tracking-[0.4em] uppercase text-ember mb-4">06 / FAQ</div>
+      <h2 class="font-display text-4xl md:text-6xl leading-[0.95]">
+        <span class="chrome-text">Common</span><br/>
+        <span class="ember-text">questions.</span>
+      </h2>
+    </div>
+
+    <div class="divide-y divide-white/10 border-y border-white/10">
+      <details class="group py-6 reveal">
+        <summary class="flex items-center justify-between gap-6 py-2">
+          <span class="font-display text-xl md:text-2xl">How long does ceramic coating last?</span>
+          <span class="caret w-8 h-8 rounded-full border border-chrome/30 grid place-items-center text-chrome transition">+</span>
+        </summary>
+        <p class="text-silver leading-relaxed pt-4 max-w-3xl">
+          Depending on the grade, our ceramic coatings last from 1 year up to 5+
+          years when properly maintained. We offer several tiers to match your
+          budget and how long you plan to keep the car.
+        </p>
+      </details>
+      <details class="group py-6 reveal">
+        <summary class="flex items-center justify-between gap-6 py-2">
+          <span class="font-display text-xl md:text-2xl">Will PPF yellow over time?</span>
+          <span class="caret w-8 h-8 rounded-full border border-chrome/30 grid place-items-center text-chrome transition">+</span>
+        </summary>
+        <p class="text-silver leading-relaxed pt-4 max-w-3xl">
+          Cheap, import-grade PPF can yellow within months. Authentic
+          top-tier PPF is UV-stabilized and optically clear — we install only
+          products with manufacturer-backed non-yellowing warranties.
+        </p>
+      </details>
+      <details class="group py-6 reveal">
+        <summary class="flex items-center justify-between gap-6 py-2">
+          <span class="font-display text-xl md:text-2xl">Can you do this on a brand-new car?</span>
+          <span class="caret w-8 h-8 rounded-full border border-chrome/30 grid place-items-center text-chrome transition">+</span>
+        </summary>
+        <p class="text-silver leading-relaxed pt-4 max-w-3xl">
+          Absolutely — in fact, right after delivery is the ideal moment. Fresh
+          paint, minimal contamination, and maximum protection from day one. Book
+          a slot before picking up the car if possible.
+        </p>
+      </details>
+      <details class="group py-6 reveal">
+        <summary class="flex items-center justify-between gap-6 py-2">
+          <span class="font-display text-xl md:text-2xl">How long will my car be with you?</span>
+          <span class="caret w-8 h-8 rounded-full border border-chrome/30 grid place-items-center text-chrome transition">+</span>
+        </summary>
+        <p class="text-silver leading-relaxed pt-4 max-w-3xl">
+          A ceramic coating with correction typically takes 2–3 days. Full PPF
+          installs 3–5 days depending on coverage. Premium carwash or tint can
+          often be same-day. We'll quote exact turnaround after inspection.
+        </p>
+      </details>
+      <details class="group py-6 reveal">
+        <summary class="flex items-center justify-between gap-6 py-2">
+          <span class="font-display text-xl md:text-2xl">Do you service customers from Manila / QC / nearby cities?</span>
+          <span class="caret w-8 h-8 rounded-full border border-chrome/30 grid place-items-center text-chrome transition">+</span>
+        </summary>
+        <p class="text-silver leading-relaxed pt-4 max-w-3xl">
+          Yes — we regularly welcome clients driving in from Bulacan,
+          Metro Manila, Pampanga, and nearby provinces. Book ahead via WhatsApp
+          so we can reserve a bay and minimize your waiting time.
+        </p>
+      </details>
+      <details class="group py-6 reveal">
+        <summary class="flex items-center justify-between gap-6 py-2">
+          <span class="font-display text-xl md:text-2xl">What payment methods do you accept?</span>
+          <span class="caret w-8 h-8 rounded-full border border-chrome/30 grid place-items-center text-chrome transition">+</span>
+        </summary>
+        <p class="text-silver leading-relaxed pt-4 max-w-3xl">
+          Cash, GCash, and bank transfers. For higher-tier PPF and ceramic
+          packages, message us to discuss installment options.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ————— CONTACT / LOCATION ————— -->
+<section id="contact" class="relative py-16 md:py-24 bg-jet">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <div class="grid md:grid-cols-12 gap-12">
+      <div class="md:col-span-5 reveal">
+        <div class="text-xs tracking-[0.4em] uppercase text-ember mb-4">07 / Visit</div>
+        <h2 class="font-display text-4xl md:text-6xl leading-[0.95] mb-8">
+          <span class="chrome-text">Bring us</span><br/>
+          <span class="ember-text">your ride.</span>
+        </h2>
+        <p class="text-silver leading-relaxed mb-10 max-w-md">
+          Walk-ins welcome. Appointments preferred for PPF, tint, and ceramic
+          coating so we can reserve a bay and minimize your wait.
+        </p>
+
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full border border-chrome/20 grid place-items-center shrink-0">
+              <svg class="w-4 h-4 text-ember" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="text-[11px] tracking-[0.3em] uppercase text-silver mb-1">Shop Address</div>
+              <div class="text-chrome">New Bypass Road, Brgy. Bagbaguin<br/>Sta. Maria, Bulacan, Philippines</div>
+              <div class="text-xs text-silver mt-1">Plus code: RX67+Q9</div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full border border-chrome/20 grid place-items-center shrink-0">
+              <svg class="w-4 h-4 text-ember" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <div class="text-[11px] tracking-[0.3em] uppercase text-silver mb-1">Hours</div>
+              <div class="text-chrome">Open Daily · until 7:30 PM</div>
+              <div class="text-xs text-silver mt-1">Busier than usual on Wednesdays</div>
+            </div>
+          </div>
+
+          <a href="tel:+639175645913" class="flex items-start gap-4 group">
+            <div class="w-10 h-10 rounded-full border border-chrome/20 grid place-items-center shrink-0 group-hover:border-ember transition">
+              <svg class="w-4 h-4 text-ember" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="text-[11px] tracking-[0.3em] uppercase text-silver mb-1">Call / WhatsApp</div>
+              <div class="text-chrome group-hover:text-white transition">0917 564 5913</div>
+              <div class="text-xs text-silver mt-1">+63 917 564 5913 (intl)</div>
+            </div>
+          </a>
+
+          <a href="mailto:betterdetailsstamaria@gmail.com" class="flex items-start gap-4 group">
+            <div class="w-10 h-10 rounded-full border border-chrome/20 grid place-items-center shrink-0 group-hover:border-ember transition">
+              <svg class="w-4 h-4 text-ember" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="text-[11px] tracking-[0.3em] uppercase text-silver mb-1">Email</div>
+              <div class="text-chrome group-hover:text-white transition break-all">betterdetailsstamaria@gmail.com</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href="https://wa.me/639175645913" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-chrome text-ink font-semibold hover:bg-white transition">
+            Chat on WhatsApp
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61573555995208" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-chrome/30 hover:border-chrome transition">
+            Visit Facebook
+          </a>
+        </div>
+      </div>
+
+      <div class="md:col-span-7 reveal">
+        <div class="relative rounded-3xl overflow-hidden border border-white/10 aspect-[4/3] md:aspect-[16/12]">
+          <iframe
+            src="https://www.google.com/maps?q=RX67%2BQ9%20Santa%20Maria%20Bulacan&output=embed"
+            width="100%" height="100%" style="border:0; filter: grayscale(0.6) contrast(1.1) brightness(0.85);"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Better Details Sta. Maria — Google Maps"></iframe>
+          <div class="absolute top-4 left-4 bg-ink/80 backdrop-blur border border-chrome/20 rounded-full px-4 py-1.5 text-[11px] tracking-widest uppercase text-chrome">
+            RX67+Q9 · Sta. Maria, Bulacan
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————— CTA BANNER ————— -->
+<section class="relative py-16 md:py-24 overflow-hidden border-y border-white/10">
+  <div class="absolute inset-0 bg-gradient-to-br from-ember/20 via-ink to-ink"></div>
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-10 text-center reveal">
+    <h2 class="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.9]">
+      <span class="chrome-text">Ready to see your car</span><br/>
+      <span class="ember-text">at its best?</span>
+    </h2>
+    <p class="text-silver max-w-xl mx-auto mt-8 text-base md:text-lg">
+      Get a free, honest quote within minutes. No pushy upsells —
+      just the right service for your car and budget.
+    </p>
+    <div class="mt-10 flex flex-wrap gap-4 justify-center">
+      <a href="https://wa.me/639175645913?text=Hi%20Better%20Details!%20I%27d%20like%20a%20quote%20for..."
+         target="_blank" rel="noopener"
+         class="inline-flex items-center gap-3 px-10 py-5 bg-chrome text-ink rounded-full font-semibold hover:bg-white transition text-base">
+        Message us on WhatsApp
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ————— FOOTER ————— -->
+<footer class="relative pt-14 pb-8 bg-ink">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <div class="grid md:grid-cols-12 gap-10 mb-10">
+      <div class="md:col-span-5">
+        <a href="#top" class="flex items-center gap-4 mb-6">
+          <img src="images/logo/better-details-logo-removebg-preview.png"
+               alt="Better Details logo"
+               class="w-16 h-16 object-contain drop-shadow-[0_0_20px_rgba(224,58,69,0.3)]" />
+          <div>
+            <div class="chrome-text font-display font-semibold tracking-wider">BETTER DETAILS</div>
+            <div class="text-[10px] tracking-[0.3em] text-silver uppercase">correct · protect · maintain</div>
+          </div>
+        </a>
+        <p class="text-silver text-sm leading-relaxed max-w-sm">
+          Premium auto detailing in Sta. Maria, Bulacan — Paint Protection Film,
+          STEK Window Tint, Ceramic Coating, and Paint Correction.
+        </p>
+      </div>
+      <div class="md:col-span-3">
+        <div class="text-[11px] tracking-[0.3em] uppercase text-silver mb-5">Services</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="#services" class="hover:text-white transition">Paint Correction</a></li>
+          <li><a href="#services" class="hover:text-white transition">Paint Protection Film</a></li>
+          <li><a href="#services" class="hover:text-white transition">STEK Window Tint</a></li>
+          <li><a href="#services" class="hover:text-white transition">Ceramic Coating</a></li>
+          <li><a href="#services" class="hover:text-white transition">Premium Carwash</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-4">
+        <div class="text-[11px] tracking-[0.3em] uppercase text-silver mb-5">Contact</div>
+        <ul class="space-y-3 text-sm text-chrome">
+          <li>New Bypass Road, Brgy. Bagbaguin, Sta. Maria, Bulacan</li>
+          <li><a href="tel:+639175645913" class="hover:text-white transition">0917 564 5913</a></li>
+          <li><a href="mailto:betterdetailsstamaria@gmail.com" class="hover:text-white transition break-all">betterdetailsstamaria@gmail.com</a></li>
+          <li class="flex gap-4 pt-2">
+            <a href="https://wa.me/639175645913" aria-label="WhatsApp" class="hover:text-white transition">WhatsApp</a>
+            <span class="text-silver">·</span>
+            <a href="https://www.facebook.com/profile.php?id=61573555995208" aria-label="Facebook" class="hover:text-white transition">Facebook</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="hairline mb-6"></div>
+    <div class="flex flex-wrap items-center justify-between gap-4 text-xs text-silver">
+      <div>© <span id="year">2026</span> Better Details Sta. Maria. All rights reserved.</div>
+      <div class="flex gap-6">
+        <span>Bagbaguin · Sta. Maria · Bulacan · PH</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ————— STICKY WHATSAPP ————— -->
+<a href="https://wa.me/639175645913?text=Hi%20Better%20Details!%20I%27d%20like%20a%20quote%20for..."
+   target="_blank" rel="noopener"
+   aria-label="Chat on WhatsApp"
+   class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-[#25D366] text-white grid place-items-center shadow-2xl shadow-emerald-500/30 wa-pulse hover:scale-105 transition">
+  <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<!-- ————— SCRIPT ————— -->
+<script>
+  // Year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Mobile menu
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  menuBtn?.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+  mobileMenu?.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mobileMenu.classList.add("hidden")));
+
+  // Spotlight cursor
+  const spotlight = document.getElementById("spotlight");
+  window.addEventListener("mousemove", e => {
+    spotlight.style.left = e.clientX + "px";
+    spotlight.style.top = e.clientY + "px";
+  });
+
+  // Service card tilt/gradient follow
+  document.querySelectorAll(".service-card").forEach(card => {
+    card.addEventListener("mousemove", e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+      card.style.setProperty("--my", `${e.clientY - r.top}px`);
+    });
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  // Gallery — arrows, drag, wheel→horizontal, progress
+  (function initGallery() {
+    const track = document.getElementById("galleryTrack");
+    if (!track) return;
+    const prev = document.getElementById("galleryPrev");
+    const next = document.getElementById("galleryNext");
+    const progress = document.getElementById("galleryProgress");
+    const step = () => {
+      const firstCard = track.querySelector("figure");
+      const gap = 20;
+      return firstCard ? firstCard.offsetWidth + gap : 540;
+    };
+
+    const updateProgress = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const pct = max > 0 ? (track.scrollLeft / max) * 100 : 0;
+      if (progress) progress.style.width = pct + "%";
+      if (prev) prev.disabled = track.scrollLeft <= 2;
+      if (next) next.disabled = track.scrollLeft >= max - 2;
+    };
+
+    prev?.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+    next?.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
+
+    // Shift+wheel or horizontal trackpad gesture → horizontal scroll (never trap normal vertical scroll)
+    track.addEventListener("wheel", (e) => {
+      if (e.shiftKey) {
+        e.preventDefault();
+        track.scrollLeft += e.deltaY;
+      }
+    }, { passive: false });
+
+    // Drag to scroll (desktop mouse)
+    let isDown = false, startX = 0, startLeft = 0, moved = false;
+    track.addEventListener("mousedown", (e) => {
+      isDown = true;
+      moved = false;
+      startX = e.pageX;
+      startLeft = track.scrollLeft;
+      track.style.scrollBehavior = "auto";
+    });
+    window.addEventListener("mouseup", () => {
+      isDown = false;
+      track.style.scrollBehavior = "";
+    });
+    window.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      if (Math.abs(e.pageX - startX) > 3) moved = true;
+      e.preventDefault();
+      track.scrollLeft = startLeft - (e.pageX - startX);
+    });
+    // Prevent click after drag
+    track.addEventListener("click", (e) => { if (moved) e.preventDefault(); }, true);
+
+    track.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    updateProgress();
+  })();
+
+  // Number ticker
+  const tickIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseFloat(el.dataset.count);
+      const decimals = parseInt(el.dataset.decimals || "0", 10);
+      const suffix = el.dataset.suffix || "";
+      const duration = 1800;
+      const start = performance.now();
+      function tick(now) {
+        const p = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const val = (target * eased).toFixed(decimals);
+        el.textContent = (decimals === 0 ? parseInt(val).toLocaleString() : val) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      tickIO.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll(".tick").forEach(el => tickIO.observe(el));
+</script>
+</body>
+</html>
