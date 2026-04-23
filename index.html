@@ -477,6 +477,65 @@
   </div>
 </div>
 
+<!-- ————— BEFORE / AFTER (proof) ————— -->
+<section id="proof" class="relative py-16 md:py-24 overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <!-- Header -->
+    <div class="grid md:grid-cols-12 gap-8 items-end mb-10 reveal">
+      <div class="md:col-span-3">
+        <div class="text-xs tracking-[0.4em] uppercase text-ember mb-4">— Proof</div>
+        <div class="text-[11px] tracking-[0.3em] uppercase text-mist">Drag the line · touch or mouse</div>
+      </div>
+      <div class="md:col-span-9">
+        <h2 class="font-display text-4xl md:text-6xl leading-[0.95]">
+          <span class="chrome-text">See the difference</span><br/>
+          <span class="ember-text italic" style="font-style: italic;">with your own hands.</span>
+        </h2>
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div class="reveal relative rounded-3xl overflow-hidden aspect-[4/3] md:aspect-[16/9] max-w-5xl mx-auto border border-white/10 select-none bg-jet" id="baWrap">
+      <!-- AFTER (base layer — full color photo) -->
+      <img src="images/pictures/patroll.jpg"
+           alt="After — ceramic-coated paintwork showing full gloss and depth"
+           class="absolute inset-0 w-full h-full object-cover"
+           draggable="false" />
+
+      <!-- BEFORE (overlay, desaturated/dulled to simulate pre-service) -->
+      <div id="baClip" class="absolute inset-0" style="clip-path: inset(0 50% 0 0);">
+        <img src="images/pictures/patroll.jpg"
+             alt="Before — dull unprotected paint"
+             class="w-full h-full object-cover"
+             style="filter: saturate(0.25) brightness(0.55) contrast(0.85);"
+             draggable="false" />
+      </div>
+
+      <!-- Labels -->
+      <div class="absolute top-4 left-4 text-[10px] md:text-[11px] tracking-[0.35em] uppercase bg-ink/80 border border-chrome/20 backdrop-blur px-3 py-1.5 rounded-full font-medium">
+        Before
+      </div>
+      <div class="absolute top-4 right-4 text-[10px] md:text-[11px] tracking-[0.35em] uppercase bg-ember/20 border border-ember/50 backdrop-blur px-3 py-1.5 rounded-full text-blush font-medium">
+        After
+      </div>
+
+      <!-- Slider handle -->
+      <div id="baHandle" class="absolute top-0 bottom-0 w-0.5 md:w-1 bg-chrome cursor-ew-resize" style="left: 50%; transform: translateX(-50%); box-shadow: 0 0 20px rgba(255,255,255,0.3);">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 md:w-14 md:h-14 rounded-full bg-chrome text-ink grid place-items-center shadow-2xl ring-4 ring-ember/30 hover:ring-ember/60 transition">
+          <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Placeholder note (subtle, will be removed when real photos arrive) -->
+      <div class="absolute bottom-3 left-1/2 -translate-x-1/2 text-[9px] md:text-[10px] tracking-[0.25em] uppercase text-chrome/40">
+        Demo · real before/after coming soon
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ————— SERVICES ————— -->
 <section id="services" class="relative py-16 md:py-24">
   <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
@@ -1157,7 +1216,7 @@
   </div>
 </footer>
 
-<!-- ————— STICKY WHATSAPP ————— -->
+<!-- ————— STICKY WHATS APP ————— -->
 <a href="https://wa.me/639175645913?text=Hi%20Better%20Details!%20I%27d%20like%20a%20quote%20for..."
    target="_blank" rel="noopener"
    aria-label="Chat on WhatsApp"
@@ -1202,6 +1261,67 @@
     });
   }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  // Before/After drag-slider
+  (function initBA() {
+    const wrap = document.getElementById("baWrap");
+    const handle = document.getElementById("baHandle");
+    const clip = document.getElementById("baClip");
+    if (!wrap || !handle || !clip) return;
+
+    const setPos = (clientX) => {
+      const r = wrap.getBoundingClientRect();
+      const pct = Math.max(0, Math.min(100, ((clientX - r.left) / r.width) * 100));
+      handle.style.left = pct + "%";
+      clip.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    };
+
+    let active = false;
+    const start = (e) => {
+      active = true;
+      wrap.style.cursor = "ew-resize";
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      setPos(x);
+      e.preventDefault();
+    };
+    const end = () => { active = false; wrap.style.cursor = ""; };
+    const move = (e) => {
+      if (!active) return;
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      setPos(x);
+    };
+
+    handle.addEventListener("mousedown", start);
+    handle.addEventListener("touchstart", start, { passive: false });
+    wrap.addEventListener("mousedown", start);
+    wrap.addEventListener("touchstart", start, { passive: false });
+    window.addEventListener("mouseup", end);
+    window.addEventListener("touchend", end);
+    window.addEventListener("mousemove", move);
+    window.addEventListener("touchmove", move, { passive: true });
+
+    // Subtle auto-animate on first entry (hint that it's interactive)
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        let p = 50;
+        const seq = [50, 25, 75, 50];
+        let i = 0;
+        const tick = () => {
+          if (i >= seq.length) return;
+          const target = seq[i];
+          const step = (target - p) * 0.08;
+          p += step;
+          setPos(wrap.getBoundingClientRect().left + (wrap.getBoundingClientRect().width * p) / 100);
+          if (Math.abs(target - p) < 0.5) { p = target; i++; setTimeout(tick, 400); }
+          else requestAnimationFrame(tick);
+        };
+        tick();
+        io.disconnect();
+      });
+    }, { threshold: 0.5 });
+    io.observe(wrap);
+  })();
 
   // Gallery — arrows, drag, wheel→horizontal, progress
   (function initGallery() {

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LLM Council Verdict — Better Details UI Redesign</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #e5e5e0;
+    --accent: #b9303a;
+    --card: #ffffff;
+    --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+  }
+  .meta { color: var(--muted); font-size: 14px; }
+  .question {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 15px;
+  }
+  .question strong { display: block; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  section { margin: 3rem 0; }
+  h2 {
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+    letter-spacing: -0.01em;
+  }
+  h3 { margin: 1.5rem 0 0.5rem; font-size: 1.1rem; }
+  .verdict-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+  }
+  .big-recommendation {
+    background: #111;
+    color: #fff;
+    border-radius: 12px;
+    padding: 2rem 2rem;
+    margin: 2rem 0;
+  }
+  .big-recommendation h2 { border-color: rgba(255,255,255,0.15); color: #fff; }
+  .big-recommendation p, .big-recommendation li { color: #e5e5e5; }
+  .one-thing {
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin: 1rem 0;
+    color: #fff;
+    font-size: 1.05rem;
+  }
+  table.decision {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 14px;
+  }
+  table.decision th, table.decision td {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--line);
+  }
+  table.decision th { background: #f2f2ed; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .tag-kill { background: #fde8ea; color: #9a1f28; }
+  .tag-keep { background: #e4f4e6; color: #1f6730; }
+  .tag-modify { background: #fff4dc; color: #8a5a00; }
+  .advisors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+  .advisor-chip {
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    font-size: 13px;
+  }
+  .advisor-chip .name { font-weight: 700; display: block; margin-bottom: 0.25rem; }
+  .advisor-chip .stance { color: var(--muted); font-size: 12px; }
+  .alignment-row {
+    display: grid;
+    grid-template-columns: 2fr repeat(5, 1fr);
+    gap: 0.35rem;
+    font-size: 12px;
+    align-items: center;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .alignment-row:last-child { border-bottom: none; }
+  .alignment-row .topic { font-weight: 600; }
+  .alignment-row .vote { text-align: center; border-radius: 4px; padding: 4px 2px; font-weight: 600; font-size: 10px; letter-spacing: 0.04em; }
+  .vote-drop { background: #fde8ea; color: #9a1f28; }
+  .vote-keep { background: #e4f4e6; color: #1f6730; }
+  .vote-modify { background: #fff4dc; color: #8a5a00; }
+  .vote-keepall { background: #e3eaff; color: #23407a; }
+  details {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.85rem 1.1rem;
+    margin: 0.5rem 0;
+  }
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--accent); font-size: 1.2rem; font-weight: 400; }
+  details[open] summary::after { content: "−"; }
+  details .body { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--line); white-space: pre-wrap; font-size: 14px; color: #333; }
+  footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; text-align: center; }
+  ul.tight li { margin-bottom: 0.3rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="badge">LLM Council · Verdict</div>
+  <h1>Pressure-test: Better Details UI Redesign</h1>
+  <div class="meta">5-advisor council · 5 peer reviews · 1 chairman synthesis · 2026-04-23</div>
+
+  <div class="question">
+    <strong>The Question</strong>
+    The <em>frontend-design</em> skill proposed 7 improvements to push the Better Details Sta. Maria site further —
+    editorial watermark numerals, hexagon motif, motorsport spec-sheet hero, editorial services spine,
+    before/after slider, pull-quote reviews, and a custom chrome-ring cursor.
+    Audience is Filipino premium-car owners arriving ~80% on mobile via Google Maps.
+    Which ideas actually convert vs. look impressive in isolation? Which to drop, keep, modify?
+  </div>
+
+  <!-- CHAIRMAN VERDICT -->
+  <section class="big-recommendation">
+    <h2>Chairman's Recommendation</h2>
+    <p><strong>Ship a stripped v1, not the magazine redesign.</strong> Four of five advisors (and all 5 peer reviewers) landed on the same pattern: most of the design-push feels like magazine cosplay for a brand-new shop still earning legitimacy. The one feature that actually sells paint protection — the before/after slider — should be the first thing you ship, not the last.</p>
+
+    <h3 style="color:#fff;">The One Thing to Do First</h3>
+    <div class="one-thing">
+      Ship the <strong>Before/After drag-slider</strong> before anything else.
+      It's the only proposal that directly answers "are you legit?" for a Maps-arriving mobile user — the single question that matters.
+    </div>
+  </section>
+
+  <!-- DECISION TABLE -->
+  <section>
+    <h2>Final Decision Matrix</h2>
+    <table class="decision">
+      <thead>
+        <tr><th>#</th><th>Proposed Change</th><th>Verdict</th><th>Why</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Editorial watermark numerals ("N° 01/02/03")</td><td><span class="tag tag-kill">DROP</span></td><td>Clutter on 390px mobile; competes with CTA</td></tr>
+        <tr><td>2</td><td>Hexagon SVG background motif</td><td><span class="tag tag-modify">KEEP SUBTLE</span></td><td>Real artifact of studio; one section max</td></tr>
+        <tr><td>3</td><td>Motorsport spec-sheet hero</td><td><span class="tag tag-modify">PARTIAL KEEP</span></td><td>Keep italic headline only; drop GPS/SERIAL/ISSUE/live-dot as cosplay</td></tr>
+        <tr><td>4</td><td>Services as editorial spine (Act 01/02/03)</td><td><span class="tag tag-kill">DROP ON MOBILE</span></td><td>Triples scroll to commercial content — biggest conversion risk</td></tr>
+        <tr><td>5</td><td>Before/After drag-slider</td><td><span class="tag tag-keep">KEEP · PROMOTE</span></td><td>Only proposal that sells the service; move up in page</td></tr>
+        <tr><td>6</td><td>Pull-quote reviews</td><td><span class="tag tag-keep">KEEP</span></td><td>But lead with "4.9★ · 77 reviews" as primary trust stamp</td></tr>
+        <tr><td>7</td><td>Custom chrome-ring cursor</td><td><span class="tag tag-kill">DROP</span></td><td>80% mobile traffic; desktop-only vanity</td></tr>
+      </tbody>
+    </table>
+
+    <h3>+ 4 things the frontend-design plan missed entirely</h3>
+    <table class="decision">
+      <tbody>
+        <tr><td>8</td><td>Messenger / Viber CTAs alongside WhatsApp</td><td>Default booking channels in PH</td></tr>
+        <tr><td>9</td><td>"Starts at ₱X" price ranges on services</td><td>Transparency as premium-market trust signal</td></tr>
+        <tr><td>10</td><td>LocalBusiness schema + Tagalog/Taglish microcopy</td><td>Reinforces GBP; speaks to the actual audience</td></tr>
+        <tr><td>11</td><td>Optimize Google Business Profile in parallel</td><td>Does more conversion work than the site will</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ALIGNMENT MAP -->
+  <section>
+    <h2>Advisor Alignment Map</h2>
+    <p class="meta" style="margin-bottom:1rem;">How each advisor voted on each proposal.</p>
+    <div class="alignment-row" style="font-weight: 700; background:#f2f2ed; border-radius: 6px;">
+      <span class="topic">Proposal</span>
+      <span class="vote">Contrarian</span>
+      <span class="vote">First Principles</span>
+      <span class="vote">Expansionist</span>
+      <span class="vote">Outsider</span>
+      <span class="vote">Executor</span>
+    </div>
+    <div class="alignment-row">
+      <span class="topic">#1 Watermarks</span>
+      <span class="vote vote-drop">DROP</span><span class="vote vote-drop">DROP</span><span class="vote vote-keepall">KEEP+</span><span class="vote vote-drop">DROP</span><span class="vote vote-drop">DROP</span>
+    </div>
+    <div class="alignment-row">
+      <span class="topic">#2 Hex motif</span>
+      <span class="vote vote-modify">SUBTLE</span><span class="vote vote-modify">SUBTLE</span><span class="vote vote-keepall">KEEP+</span><span class="vote vote-modify">SUBTLE</span><span class="vote vote-drop">DROP</span>
+    </div>
+    <div class="alignment-row">
+      <span class="topic">#3 Spec-sheet hero</span>
+      <span class="vote vote-drop">DROP</span><span class="vote vote-drop">DROP</span><span class="vote vote-keepall">KEEP+</span><span class="vote vote-drop">DROP</span><span class="vote vote-modify">MODIFY</span>
+    </div>
+    <div class="alignment-row">
+      <span class="topic">#4 Editorial spine</span>
+      <span class="vote vote-drop">DROP</span><span class="vote vote-drop">DROP</span><span class="vote vote-keepall">KEEP+</span><span class="vote vote-modify">MODIFY</span><span class="vote vote-modify">MODIFY</span>
+    </div>
+    <div class="alignment-row">
+      <span class="topic">#5 Before/After slider</span>
+      <span class="vote vote-keep">KEEP</span><span class="vote vote-keep">KEEP+</span><span class="vote vote-keepall">KEEP++</span><span class="vote vote-keep">KEEP+</span><span class="vote vote-keep">KEEP·FIRST</span>
+    </div>
+    <div class="alignment-row">
+      <span class="topic">#6 Pull-quote reviews</span>
+      <span class="vote vote-keep">KEEP</span><span class="vote vote-keep">KEEP</span><span class="vote vote-keepall">KEEP+</span><span class="vote vote-modify">MODIFY</span><span class="vote vote-keep">KEEP</span>
+    </div>
+    <div class="alignment-row">
+      <span class="topic">#7 Custom cursor</span>
+      <span class="vote vote-drop">DROP</span><span class="vote vote-drop">DROP</span><span class="vote vote-keepall">KEEP+</span><span class="vote vote-drop">DROP</span><span class="vote vote-drop">DROP</span>
+    </div>
+  </section>
+
+  <!-- AGREEMENT / CLASHES -->
+  <section>
+    <h2>Where the Council Agreed</h2>
+    <div class="verdict-card">
+      <ul class="tight">
+        <li><strong>KILL</strong> the custom cursor (#7) — vanity on a mobile-first audience</li>
+        <li><strong>KILL</strong> the watermark numerals (#1) — clutter on small screens, competes with CTA</li>
+        <li><strong>MODIFY</strong> the motorsport hero (#3) — drop GPS, SERIAL, ISSUE numbers, and the fake live-dot; keep the italic "correct. <em>protect.</em> maintain." headline</li>
+        <li><strong>PROMOTE</strong> the Before/After slider (#5) to early in the page — unanimously the highest-conversion element</li>
+        <li><strong>KEEP</strong> pull-quote reviews (#6), but lead with the <em>"4.9★ · 77 reviews"</em> number, not typography</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where the Council Clashed</h2>
+    <div class="verdict-card">
+      <h3>The editorial services spine (#4)</h3>
+      <p>Sharpest disagreement in the session:</p>
+      <ul class="tight">
+        <li><strong>Contrarian:</strong> "Single biggest conversion risk in the plan" — triples mobile scroll for the most commercial content</li>
+        <li><strong>Executor:</strong> Fine on desktop if mobile stacking is handled</li>
+        <li><strong>Expansionist:</strong> Keep — primes lifetime value</li>
+        <li><strong>First Principles + Outsider:</strong> Drop — hides services behind decoration</li>
+      </ul>
+      <p><strong>Chairman's call:</strong> Drop on mobile. Acceptable as a progressive-enhancement on desktop only.</p>
+    </div>
+    <div class="verdict-card">
+      <h3>Expansionist was the outlier</h3>
+      <p>Response D alone proposed <strong>ship all 7 + customer portals + quarterly "issues" + national brand ambitions.</strong></p>
+      <p><strong>All 5 peer reviewers</strong> independently flagged this as the biggest blind spot: treating a soft-opened shop with 77 reviews like an established brand with distribution. Building Issue 002 before anyone has read Issue 001.</p>
+    </div>
+  </section>
+
+  <!-- PEER REVIEW BLIND SPOTS -->
+  <section>
+    <h2>Blind Spots That Emerged Only in Peer Review</h2>
+    <p>Every peer reviewer independently flagged the same set of gaps the 5 advisors missed:</p>
+    <div class="verdict-card">
+      <ul class="tight">
+        <li><strong>Google Business Profile is the actual top of funnel</strong> — for Maps-arriving users, GBP photos, hours, the "Book" button, and FB Messenger auto-reply do more conversion work than the website will</li>
+        <li><strong>No Tagalog/Taglish copy</strong> — site is English-only for a Filipino audience</li>
+        <li><strong>Viber/Messenger are the dominant PH channels</strong>, not WhatsApp or web forms</li>
+        <li><strong>Load performance on Philippine 4G</strong> — every unnecessary font/SVG costs data</li>
+        <li><strong>LocalBusiness schema markup</strong> — so the site reinforces (not competes with) the GBP listing</li>
+        <li><strong>Pricing transparency</strong> ("starts at ₱X") — a known premium-market trust signal in PH</li>
+        <li><strong>4.9★/77 reviews should be pulled live or semantically marked up</strong>, not retyped</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ADVISORS -->
+  <section>
+    <h2>Full Advisor Responses</h2>
+
+    <details>
+      <summary>🎭 The Contrarian</summary>
+      <div class="body">This plan is a magazine art director's portfolio piece disguised as a conversion funnel. You're optimizing for "wow, look at this" from design Twitter, not for a Fortuner owner squinting at their phone in a Shell parking lot after clicking "visit website" from Google Maps.
+
+Kill immediately:
+
+#7 Custom cursor. Mobile-first audience. Cursors don't exist on phones. On desktop it's a gimmick that lags on mid-range hardware and breaks accessibility. Zero conversion value. Drop.
+
+#1 Editorial watermark numerals. "N° 01/02/03" ghosted in corners screams Kinfolk magazine, not auto detailing. Filipino premium car owners want to see their car's paint reflecting light, not serial numbers. It adds visual noise on a 390px viewport where every pixel should earn its place. At best it's invisible on mobile; at worst it competes with the CTA.
+
+#3 Motorsport spec-sheet hero. "ISSUE 001 · Q1 2026 · SERIAL RX67-Q9 · GPS coordinates" — this is cosplay. A new business with no site until now leading with fake issue numbers looks try-hard, not premium. "Bay status live-dot" implies real-time data you don't have. The italic "protect." mixed with upright is fine; scrap the rest.
+
+#4 Vertical editorial spine. Replacing a scannable 3-card grid with alternating left/right chapter layout triples the scroll distance on mobile for the most important commercial content. This is the single biggest conversion risk in the plan.
+
+Keep, modified:
+- #5 Before/After slider — this is the only proposal that actually sells the service. Prioritize it.
+- #6 Pull-quote reviews — fine, but lead with the 4.9★/77 reviews number, not typography.
+- #2 Hexagon motif — one section max, subtle, tied to the real ceiling story.
+
+Verdict: ship #5 and a restrained #6. Everything else is ego.</div>
+    </details>
+
+    <details>
+      <summary>🌱 The First Principles Thinker</summary>
+      <div class="body">You're asking the wrong question.
+
+The question isn't "how do we push this design further." The question is: what is a website for a brand-new detailing shop actually supposed to do?
+
+Strip it down. A customer opens Google Maps, taps "visit website" on mobile, and has one of three jobs:
+1. Decide if you're legit (photos, reviews, price signal)
+2. Get the address/hours/contact
+3. Book or message
+
+That's it. Every design decision should serve those three jobs. Now audit the plan against that:
+
+Serial numbers, GPS coordinates, "ISSUE 001 · Q1 2026," SERIAL RX67-Q9, live-dot bay status — who is this for? A customer doesn't care what issue number your website is. You're cosplaying as a magazine. This is designer-ego decoration dressed up as information. Drop it all.
+
+Editorial spine with "Act 01/02/03" — a Fortuner owner in Bulacan wants to know "can you do ceramic coating, how much, how long." Alternating massive chapter numerals slows that down on mobile. Drop it.
+
+Chrome-ring cursor — desktop-only vanity. Your traffic is mobile. Zero conversion impact. Drop it.
+
+Hexagon motif — it's a real artifact of the physical studio. That's authentic. Keep, but subtle.
+
+Before/after slider — this is the only one that directly answers "are you legit." Keep. Make it the hero if anything.
+
+Pull-quote reviews — one giant quote with the 4.9/77 proof above the fold beats three equal cards. Keep.
+
+Verdict: You have a legitimacy problem, not a design-ambition problem. Kill items 1, 3, 4, 7. Keep 2 (restrained), 5 (promote it), 6. Then spend the reclaimed effort on fast mobile load, a visible phone/FB button, prices or price ranges, and the 4.9★ proof at the top. Stop designing a magazine. Design a trust machine.</div>
+    </details>
+
+    <details>
+      <summary>🚀 The Expansionist</summary>
+      <div class="body">The Contrarian will tell you to strip this down. Ignore him. You're sitting on something bigger than a detailing shop website — you're building the first editorial-grade automotive brand in Bulacan, and this plan is the seed.
+
+Go harder on what compounds:
+
+- Keep the spec-sheet hero, but make "ISSUE 001 · Q1 2026" a real thing. Every quarter, a new "issue" drops with a featured build, a customer car story, a technique deep-dive. You just turned a website into content marketing that Fortuner and GR Yaris owners will actually screenshot and share. That's free reach in a market where FB groups are everything.
+- Keep the Act 01/02/03 spine. This is the foundation for a services ladder — PPF clients become ceramic clients become annual maintenance clients. The editorial framing primes lifetime value, not one-off transactions.
+- Before/After slider: non-negotiable, expand it. Add 6-8, not 1. Tag each with car model. Filipino buyers research obsessively — give them proof per vehicle class.
+- Watermark numerals + hexagon motif: keep, but license them as a visual system. Put them on receipts, IG templates, shop signage, loyalty cards. The website becomes the brand bible.
+
+What you're undervaluing entirely: a booking deposit flow, a "my car's file" customer portal (service history as a collectible dossier matching the editorial aesthetic), and an Instagram-to-site pipeline. Mobile users from Google Maps are high-intent — capture them with a sticky "Reserve a Bay" CTA, not just a phone number.
+
+Verdict: Ship all 7. Then 10x the Before/After and turn ISSUE 001 into a quarterly drop. This brand can own premium detailing nationally.</div>
+    </details>
+
+    <details>
+      <summary>👤 The Outsider</summary>
+      <div class="body">I'm a regular person who just tapped "visit website" from Google Maps. I want to know three things: Are you legit? Where are you? How much?
+
+Let me react to this plan as that person:
+
+"ISSUE 001 · Q1 2026" · "SERIAL RX67-Q9" · GPS coordinates. What is this? I thought I was booking a car wash. Why does it look like I'm buying a watch from a magazine? I don't know what STEK is yet and you're showing me fake serial numbers. This feels like cosplay, not a business.
+
+"N° 01/02/03" ghosted numerals on every section. Decorative clutter. On my phone screen, which is maybe 390px wide, these either get cropped weirdly or eat into the text. I will not notice them. I will notice that the page feels busy.
+
+"correct. protect. maintain." I don't know what any of those three words mean in context. Mixing italic just makes me squint.
+
+Custom chrome-ring cursor with blend mode. I'm on mobile. There is no cursor. This is 100% dead weight for ~90% of your traffic.
+
+Act 01/02/03 editorial spine. I have to scroll through three "chapters" to see your three services? Just let me see what you do.
+
+What actually helps me: The before/after slider. That's the only thing on this list that answers "are you legit." Keep it. Make it the hero if you can.
+
+Verdict: Drop 1, 2, 3, 7. Keep 5, move it up. Modify 4 and 6 — a brand-new shop with 77 reviews needs to look trustworthy and clear, not like a magazine that's trying too hard. You're decorating before you've earned the right to.</div>
+    </details>
+
+    <details>
+      <summary>⚙️ The Executor</summary>
+      <div class="body">Monday morning you open the laptop. What ships?
+
+Kill immediately:
+- Custom cursor (#7). Dead on mobile. 80% of your traffic is thumbs from Google Maps. You'd be polishing a feature 20% of visitors see. Zero ROI. Skip.
+- Hexagon SVG motif (#2). "Mirrors the LED ceiling" is a story you tell yourself, not the customer. Another asset to load on Philippine mobile data. Cut it.
+- Editorial watermarks N° 01/02/03 (#1). On a 390px screen these become noise behind your CTA. If you must, do it desktop-only with a media query — but honestly, drop it for v1.
+
+Modify:
+- Hero spec-sheet (#3). The "correct. protect. maintain." headline — keep. GPS coords and "SERIAL RX67-Q9" — cut. A Fortuner owner in Bulacan wants to know: what do you do, where are you, how much, can I book. Replace serials with: service, location, price-from, "Book via FB Messenger" button. The bay-status live-dot is cute if it's real; fake it and you look amateur.
+- Services as editorial spine (#4). Fine on desktop. On mobile it collapses to a stack anyway — just make sure Act 01/02/03 numerals don't push the actual service info below the fold.
+
+Keep:
+- Before/After slider (#5). This is the single highest-conversion element on the page. Paint correction sells itself visually. Build this first.
+- Editorial pull-quote reviews (#6). One hero quote from your best 5-star is more trustworthy than three equal cards. Ship it.
+
+Monday order: Before/After slider → hero copy rewrite with Messenger CTA → pull-quote reviews. Three days. Everything else is v2.</div>
+    </details>
+  </section>
+
+  <!-- PEER REVIEW SUMMARY -->
+  <section>
+    <h2>Peer Review Highlights</h2>
+    <details>
+      <summary>All 5 reviewers unanimously picked Response E (First Principles Thinker) as strongest</summary>
+      <div class="body">Common reasoning: "It reframes before critiquing." The three-jobs audit (legit, location, book) gives every recommendation a defensible reason rather than taste. It names the actual diagnosis — "trust machine, not magazine" — and reallocates reclaimed effort to concrete trust levers (4.9★ proof above fold, price ranges, FB button).</div>
+    </details>
+    <details>
+      <summary>All 5 reviewers unanimously flagged Response D (Expansionist) as biggest blind spot</summary>
+      <div class="body">Common reasoning: Building a "national editorial brand" on 77 reviews and a soft opening is premise inversion — brand systems follow proof, not precede it. D is the only response that never mentions mobile. Confusing brand ambition with conversion reality for a shop that needs to convert Maps-tap traffic this week, not build a quarterly editorial franchise.</div>
+    </details>
+    <details>
+      <summary>Shared blind spots across ALL 5 advisors (surfaced only in peer review)</summary>
+      <div class="body">- Google Business Profile as the actual top-of-funnel, not the website
+- Tagalog/Taglish copy for a Filipino audience
+- Viber/Messenger as dominant PH booking channels
+- Load performance on Philippine 4G mobile networks
+- LocalBusiness schema markup and review-snippet semantics
+- Pricing transparency as a trust primitive
+- Barangay/landmark-level location specificity for Bulacan buyers
+- GCash/payment signals</div>
+    </details>
+  </section>
+
+  <footer>
+    LLM Council session · 5 advisors · 5 anonymized peer reviews · 1 chairman synthesis<br/>
+    Generated 2026-04-23 · council-report-20260423-150057.html
+  </footer>
+</div>
+</body>
+</html>
