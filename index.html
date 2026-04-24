@@ -17,7 +17,7 @@
 <link rel="icon" type="image/png" href="images/logo/better-details-logo-removebg-preview.png" />
 <link rel="apple-touch-icon" href="images/logo/better-details-logo-removebg-preview.png" />
 
-<!-- Fonts: Clash Display (display) + Satoshi (body) — characterful, non-default -->
+<!-- Fonts:  (display) + Satoshi (body) — characterful, non-default -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
@@ -82,7 +82,7 @@
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, .display {
+  h1, h2, h3, h4, .display   {
     font-family: "Clash Display", sans-serif;
     letter-spacing: -0.02em;
   }
@@ -175,7 +175,7 @@
     width: max-content;
   }
 
-  /* ——— Car reflection breathing animation on hero ——— */
+  /* Car reflection breathing animation on hero */
   @keyframes gloss {
     0%, 100% { opacity: 0.4; transform: translateX(-60%) skewX(-20deg); }
     50% { opacity: 0.9; transform: translateX(60%) skewX(-20deg); }
@@ -335,7 +335,7 @@
 <!-- Spotlight cursor -->
 <div class="spotlight" id="spotlight"></div>
 
-<!-- ————— NAV ————— -->
+<!-- NAV -->
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-ink/60 border-b border-white/5">
   <nav class="max-w-[1400px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
     <a href="#top" class="flex items-center gap-3 group">
@@ -378,7 +378,7 @@
   </div>
 </header>
 
-<!-- ————— HERO ————— -->
+<!-- HERO  -->
 <section id="top" class="relative min-h-[100svh] overflow-hidden pt-24 pb-16">
   <!-- Background: Red Toyota 86 in Better Details studio -->
   <div class="absolute inset-0">
@@ -387,7 +387,7 @@
          class="w-full h-full object-cover opacity-75"
          style="transform: translateX(20%);" />
     <div class="absolute inset-0 bg-gradient-to-b from-ink/20 via-transparent to-ink"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/100 to-transparent"></div>
     <div class="gloss-sweep"></div>
   </div>
 
@@ -400,10 +400,11 @@
     </div>
 
     <!-- Giant headline -->
-    <h1 class="reveal font-display font-semibold leading-[0.95] md:leading-[0.9] tracking-tight text-[clamp(2.5rem,9vw,9rem)] max-w-6xl">
+    <h1 class="reveal font-display font-semibold leading-[0.95] md:leading-[0.9] tracking-tight text-[clamp(2.5rem,9vw,5.5rem)] max-w-6xl">
       <span class="block chrome-text animated">Your paint,</span>
       <span class="block"><span class="ember-text">perfected.</span></span>
-      <span class="block stroke-text">protected. maintained.</span>
+      <span class="block stroke-text">protected.</span>
+      <span class="block stroke-text">maintained</span>
     </h1>
 
     <p class="reveal mt-6 md:mt-8 max-w-xl text-sm md:text-lg text-silver leading-relaxed font-light">
@@ -449,13 +450,11 @@
   </div>
 
   <!-- Scroll cue -->
-  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.4em] uppercase text-silver flex flex-col items-center gap-3">
-    Scroll
     <span class="w-px h-10 bg-gradient-to-b from-chrome/60 to-transparent"></span>
   </div>
 </section>
 
-<!-- ————— MARQUEE: brand partners / keywords ————— -->
+<!--MARQUEE: brand partners / keywords-->
 <div class="py-6 border-y border-white/5 bg-jet overflow-hidden">
   <div class="marquee-track flex items-center gap-10 md:gap-16 whitespace-nowrap text-chrome/50 font-display font-medium text-base md:text-2xl tracking-wider uppercase">
     <span class="flex items-center gap-16">
@@ -477,7 +476,7 @@
   </div>
 </div>
 
-<!-- ————— BEFORE / AFTER (proof) ————— -->
+<!-- BEFORE / AFTER (proof) -->
 <section id="proof" class="relative py-16 md:py-24 overflow-hidden">
   <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
     <!-- Header -->
