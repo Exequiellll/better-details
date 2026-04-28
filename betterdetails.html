@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
 <!-- Tailwind CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -384,10 +385,12 @@
   <div class="absolute inset-0">
     <img src="images/pictures/485357285_122114501474785199_4157328346295807510_n.jpg"
          alt="Red Toyota 86 at Better Details Sta. Maria studio with illuminated brand wall"
-         class="w-full h-full object-cover opacity-75"
-         style="transform: translateX(20%);" />
-    <div class="absolute inset-0 bg-gradient-to-b from-ink/20 via-transparent to-ink"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/100 to-transparent"></div>
+         class="w-full h-full object-cover"
+         loading="eager" />
+    <!-- Horizontal left fade -->
+    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30"></div>
+    <!-- Vertical fade: dark bottom + softly dim top -->
+    <div class="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40"></div>
     <div class="gloss-sweep"></div>
   </div>
 
@@ -400,11 +403,11 @@
     </div>
 
     <!-- Giant headline -->
-    <h1 class="reveal font-display font-semibold leading-[0.95] md:leading-[0.9] tracking-tight text-[clamp(2.5rem,9vw,5.5rem)] max-w-6xl">
+    <h1 class="reveal font-semibold leading-[1.02] md:leading-[0.98] text-[clamp(2.5rem,9vw,5.5rem)] max-w-6xl" style="font-family:'Bebas Neue',sans-serif; letter-spacing: 0.02em;">
       <span class="block chrome-text animated">Your paint,</span>
       <span class="block"><span class="ember-text">perfected.</span></span>
-      <span class="block stroke-text">protected.</span>
-      <span class="block stroke-text">maintained</span>
+      <span class="block stroke-text" style="-webkit-text-stroke: 1px rgba(229, 231, 235, 0.7);">protected.</span>
+      <span class="block stroke-text" style="-webkit-text-stroke: 1px rgba(229, 231, 235, 0.7);">maintained</span>
     </h1>
 
     <p class="reveal mt-6 md:mt-8 max-w-xl text-sm md:text-lg text-silver leading-relaxed font-light">
@@ -431,20 +434,20 @@
     <!-- Stats strip -->
     <div class="reveal mt-10 grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-6 md:gap-12 pt-6 md:pt-8 border-t border-white/10">
       <div>
-        <div class="font-display text-3xl md:text-5xl chrome-text tick" data-count="4.9" data-decimals="1">0.0</div>
-        <div class="text-xs tracking-widest uppercase text-mist mt-2">Google Rating</div>
+        <div class="text-3xl md:text-5xl chrome-text tick tracking-wide" style="font-family:'Bebas Neue',sans-serif;" data-count="4.9" data-decimals="1">0.0</div>
+        <div class="text-[10px] tracking-[0.25em] uppercase text-mist mt-2" style="font-family:'JetBrains Mono',monospace;">Google Rating</div>
       </div>
       <div>
-        <div class="font-display text-3xl md:text-5xl chrome-text tick" data-count="77" data-suffix="+">0</div>
-        <div class="text-xs tracking-widest uppercase text-mist mt-2">Verified Reviews</div>
+        <div class="text-3xl md:text-5xl chrome-text tick tracking-wide" style="font-family:'Bebas Neue',sans-serif;" data-count="77" data-suffix="+">0</div>
+        <div class="text-[10px] tracking-[0.25em] uppercase text-mist mt-2" style="font-family:'JetBrains Mono',monospace;">Verified Reviews</div>
       </div>
       <div>
-        <div class="font-display text-3xl md:text-5xl chrome-text tick" data-count="3000" data-suffix="+">0</div>
-        <div class="text-xs tracking-widest uppercase text-mist mt-2">Facebook Followers</div>
+        <div class="text-3xl md:text-5xl chrome-text tick tracking-wide" style="font-family:'Bebas Neue',sans-serif;" data-count="3000" data-suffix="+">0</div>
+        <div class="text-[10px] tracking-[0.25em] uppercase text-mist mt-2" style="font-family:'JetBrains Mono',monospace;">Facebook Followers</div>
       </div>
       <div>
-        <div class="font-display text-3xl md:text-5xl chrome-text tick" data-count="92" data-suffix="%">0</div>
-        <div class="text-xs tracking-widest uppercase text-mist mt-2">Recommend Us</div>
+        <div class="text-3xl md:text-5xl chrome-text tick tracking-wide" style="font-family:'Bebas Neue',sans-serif;" data-count="92" data-suffix="%">0</div>
+        <div class="text-[10px] tracking-[0.25em] uppercase text-mist mt-2" style="font-family:'JetBrains Mono',monospace;">Recommend Us</div>
       </div>
     </div>
   </div>
